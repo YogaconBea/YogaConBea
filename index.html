@@ -9,28 +9,32 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            font-family: 'Georgia', serif;
+            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center/cover;
-            font-family: 'Georgia', serif;
         }
 
+        /* Botón principal */
         .catalogo-btn {
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 15px 40px;
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
+            font-size: 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
         }
 
         .catalogo-btn:hover {
             background-color: rgba(0, 0, 0, 0.9);
         }
 
+        /* Galería */
         .galeria {
             position: fixed;
             top: 0;
@@ -38,60 +42,84 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: none;
             justify-content: center;
+            align-items: center;
+            overflow: hidden;
             opacity: 0;
-            visibility: hidden;
             transition: opacity 0.5s ease-in-out;
-            padding: 20px;
-            box-sizing: border-box;
         }
 
-        .galeria.activa {
+        .galeria.mostrar {
+            display: flex;
             opacity: 1;
-            visibility: visible;
         }
 
-        .galeria-contenedor {
-            max-height: 80vh;
-            overflow-y: auto;
+        .galeria-contenido {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            width: 90%;
+            height: 90%;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+
+        .galeria-contenido::-webkit-scrollbar {
+            display: none;
         }
 
         .galeria img {
-            width: 90%;
+            width: 80%;
             max-width: 500px;
-            border-radius: 5px;
-            transition: transform 0.3s ease-in-out;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
 
         .galeria img:hover {
             transform: scale(1.05);
         }
 
-        .cerrar-btn {
+        /* Botón de cerrar */
+        .cerrar {
             position: absolute;
             top: 20px;
             right: 30px;
             font-size: 30px;
             color: white;
-            background: none;
-            border: none;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cerrar:hover {
+            transform: scale(1.2);
+        }
+
+        /* Icono de Instagram */
+        .instagram-logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-logo:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
+
     <button class="catalogo-btn" onclick="toggleGaleria()">Catálogo de Productos</button>
 
+    <!-- Galería -->
     <div class="galeria" id="galeria">
-        <button class="cerrar-btn" onclick="toggleGaleria()">&times;</button>
-        <div class="galeria-contenedor">
+        <span class="cerrar" onclick="toggleGaleria()">✖</span>
+        <div class="galeria-contenido">
             <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
             <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
             <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06%20(1).jpeg?raw=true" alt="Producto 3">
@@ -100,13 +128,35 @@
         </div>
     </div>
 
+    <!-- Logo de Instagram -->
+    <a href="https://www.instagram.com/yogaconbea.ch?igsh=ejJkem5uZDljZ3Nu" target="_blank">
+        <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+
     <script>
         function toggleGaleria() {
-            const galeria = document.getElementById("galeria");
-            galeria.classList.toggle("activa");
+            var galeria = document.getElementById("galeria");
+            if (galeria.classList.contains("mostrar")) {
+                galeria.classList.remove("mostrar");
+                setTimeout(() => { galeria.style.display = "none"; }, 500);
+            } else {
+                galeria.style.display = "flex";
+                setTimeout(() => { galeria.classList.add("mostrar"); }, 10);
+            }
         }
+
+        // Hacer el scroll de la galería solo con la rueda del mouse
+        document.getElementById("galeria").addEventListener("wheel", function(event) {
+            event.preventDefault();
+            this.querySelector(".galeria-contenido").scrollBy({
+                top: event.deltaY * 1,
+                behavior: "smooth"
+            });
+        });
     </script>
+
 </body>
 </html>
+
 
 
