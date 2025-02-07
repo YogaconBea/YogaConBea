@@ -5,43 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Productos</title>
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center;
-            background-size: cover;
+            height: 100vh;
+            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center/cover;
             font-family: 'Garamond', serif;
         }
-
-        .button-container {
-            text-align: center;
-        }
-
         .catalog-button {
-            padding: 15px 40px;
+            padding: 15px 30px;
             font-size: 24px;
-            font-family: 'Garamond', serif;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
         }
-
         .catalog-button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .gallery {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+        .gallery.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .gallery img {
+            max-width: 80%;
+            max-height: 80vh;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button class="catalog-button">Catálogo de Productos</button>
+    <button class="catalog-button" onclick="toggleGallery()">Catálogo de Productos</button>
+    
+    <div class="gallery" id="gallery">
+        <button class="close-button" onclick="toggleGallery()">&times;</button>
+        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
+        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
+        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06%20(1).jpeg?raw=true" alt="Producto 3">
+        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06.jpeg?raw=true" alt="Producto 4">
+        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.07.jpeg?raw=true" alt="Producto 5">
     </div>
+    
+    <script>
+        function toggleGallery() {
+            const gallery = document.getElementById('gallery');
+            gallery.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
+
 
