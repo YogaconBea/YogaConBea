@@ -8,87 +8,40 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center;
+            background-size: cover;
+            font-family: 'Garamond', serif;
+        }
+
+        .button-container {
             text-align: center;
         }
 
-        .logo {
-            margin: 20px;
-        }
-
-        .catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .producto {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .producto img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .producto h3 {
-            margin: 10px 0;
-        }
-
-        .producto p {
-            color: #555;
-        }
-
-        .producto button {
-            background: #007BFF;
+        .catalog-button {
+            padding: 15px 40px;
+            font-size: 24px;
+            font-family: 'Garamond', serif;
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .producto button:hover {
-            background: #0056b3;
+        .catalog-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-    <div class="logo">
-        <img src="https://github.com/T020/PMP/blob/main/PMPlogo-removebg-preview.png?raw=true" alt="Logo PMP" width="150">
-    </div>
-
-    <h1>Catálogo de Productos</h1>
-    <div class="catalogo">
-        <div class="producto">
-            <img src="https://via.placeholder.com/200" alt="Producto 1">
-            <h3>Producto 1</h3>
-            <p>Descripción breve del producto.</p>
-            <p><strong>$20.00</strong></p>
-            <button>Agregar al carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://via.placeholder.com/200" alt="Producto 2">
-            <h3>Producto 2</h3>
-            <p>Descripción breve del producto.</p>
-            <p><strong>$25.00</strong></p>
-            <button>Agregar al carrito</button>
-        </div>
-        <div class="producto">
-            <img src="https://via.placeholder.com/200" alt="Producto 3">
-            <h3>Producto 3</h3>
-            <p>Descripción breve del producto.</p>
-            <p><strong>$30.00</strong></p>
-            <button>Agregar al carrito</button>
-        </div>
+    <div class="button-container">
+        <button class="catalog-button">Catálogo de Productos</button>
     </div>
 </body>
 </html>
+
