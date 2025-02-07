@@ -5,30 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Productos</title>
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center/cover;
-            font-family: 'Garamond', serif;
+            font-family: 'Georgia', serif;
         }
-        .catalog-button {
+
+        .catalogo-btn {
             padding: 15px 30px;
-            font-size: 24px;
-            border: none;
-            border-radius: 10px;
+            font-size: 20px;
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s;
+            font-family: 'Georgia', serif;
         }
-        .catalog-button:hover {
+
+        .catalogo-btn:hover {
             background-color: rgba(0, 0, 0, 0.9);
         }
-        .gallery {
+
+        .galeria {
             position: fixed;
             top: 0;
             left: 0;
@@ -36,32 +39,45 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.9);
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .gallery.active {
+
+        .galeria.activa {
             opacity: 1;
             visibility: visible;
         }
-        .gallery img {
-            max-width: 80%;
+
+        .galeria-contenedor {
             max-height: 80vh;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            transition: transform 0.3s;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
-        .gallery img:hover {
+
+        .galeria img {
+            width: 90%;
+            max-width: 500px;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .galeria img:hover {
             transform: scale(1.05);
         }
-        .close-button {
+
+        .cerrar-btn {
             position: absolute;
             top: 20px;
-            right: 20px;
+            right: 30px;
             font-size: 30px;
             color: white;
             background: none;
@@ -71,21 +87,23 @@
     </style>
 </head>
 <body>
-    <button class="catalog-button" onclick="toggleGallery()">Catálogo de Productos</button>
-    
-    <div class="gallery" id="gallery">
-        <button class="close-button" onclick="toggleGallery()">&times;</button>
-        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
-        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
-        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06%20(1).jpeg?raw=true" alt="Producto 3">
-        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06.jpeg?raw=true" alt="Producto 4">
-        <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.07.jpeg?raw=true" alt="Producto 5">
+    <button class="catalogo-btn" onclick="toggleGaleria()">Catálogo de Productos</button>
+
+    <div class="galeria" id="galeria">
+        <button class="cerrar-btn" onclick="toggleGaleria()">&times;</button>
+        <div class="galeria-contenedor">
+            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
+            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
+            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06%20(1).jpeg?raw=true" alt="Producto 3">
+            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06.jpeg?raw=true" alt="Producto 4">
+            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.07.jpeg?raw=true" alt="Producto 5">
+        </div>
     </div>
-    
+
     <script>
-        function toggleGallery() {
-            const gallery = document.getElementById('gallery');
-            gallery.classList.toggle('active');
+        function toggleGaleria() {
+            const galeria = document.getElementById("galeria");
+            galeria.classList.toggle("activa");
         }
     </script>
 </body>
