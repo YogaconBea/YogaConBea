@@ -10,15 +10,42 @@
             padding: 0;
             height: 100%;
             font-family: 'Georgia', serif;
-            background: url('https://github.com/YogaconBea/YogaConBea/blob/main/WORKS%20IN%20PROGRESS.....png?raw=true') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow-x: hidden;
         }
 
-        /* Botón principal */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #slide1 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0001.jpg?raw=true'); }
+        #slide2 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0003.jpg?raw=true'); }
+        #slide3 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0004.jpg?raw=true'); }
+        #slide4 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0005.jpg?raw=true'); }
+        #slide5 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0006.jpg?raw=true'); }
+        #slide6 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0007.jpg?raw=true'); }
+
+        .instagram-logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-logo:hover {
+            transform: scale(1.2);
+        }
+
         .catalogo-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             padding: 15px 40px;
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
@@ -34,7 +61,6 @@
             background-color: rgba(0, 0, 0, 0.9);
         }
 
-        /* Galería */
         .galeria {
             position: fixed;
             top: 0;
@@ -81,7 +107,6 @@
             transform: scale(1.05);
         }
 
-        /* Botón de cerrar */
         .cerrar {
             position: absolute;
             top: 20px;
@@ -95,40 +120,26 @@
         .cerrar:hover {
             transform: scale(1.2);
         }
-
-        /* Icono de Instagram */
-        .instagram-logo {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .instagram-logo:hover {
-            transform: scale(1.2);
-        }
     </style>
 </head>
 <body>
+    <div class="slide" id="slide1"></div>
+    <div class="slide" id="slide2"></div>
+    <div class="slide" id="slide3"></div>
+    <div class="slide" id="slide4"></div>
+    <div class="slide" id="slide5"></div>
+    <div class="slide" id="slide6"></div>
 
     <button class="catalogo-btn" onclick="toggleGaleria()">Catálogo de Productos</button>
 
-    <!-- Galería -->
     <div class="galeria" id="galeria">
         <span class="cerrar" onclick="toggleGaleria()">✖</span>
         <div class="galeria-contenido">
             <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
             <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
-            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06%20(1).jpeg?raw=true" alt="Producto 3">
-            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.06.jpeg?raw=true" alt="Producto 4">
-            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.07.jpeg?raw=true" alt="Producto 5">
         </div>
     </div>
 
-    <!-- Logo de Instagram -->
     <a href="https://www.instagram.com/yogaconbea.ch?igsh=ejJkem5uZDljZ3Nu" target="_blank">
         <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
     </a>
@@ -144,19 +155,6 @@
                 setTimeout(() => { galeria.classList.add("mostrar"); }, 10);
             }
         }
-
-        // Hacer el scroll de la galería solo con la rueda del mouse
-        document.getElementById("galeria").addEventListener("wheel", function(event) {
-            event.preventDefault();
-            this.querySelector(".galeria-contenido").scrollBy({
-                top: event.deltaY * 1,
-                behavior: "smooth"
-            });
-        });
     </script>
-
 </body>
 </html>
-
-
-
