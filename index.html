@@ -27,7 +27,24 @@
         #section5 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0006.jpg?raw=true'); }
         #section6 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0007.jpg?raw=true'); }
 
-        /* Modificación: Botones centrados horizontalmente en la parte superior */
+        /* Personalización del Scroll - Fondo transparente */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Hace el fondo del scroll transparente */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.5); /* Color blanco semi-transparente para el control del scroll */
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
         .nav-buttons {
             position: fixed;
             top: 20px;
@@ -115,4 +132,3 @@
     </script>
 </body>
 </html>
-
