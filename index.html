@@ -10,23 +10,64 @@
             padding: 0;
             height: 100%;
             font-family: 'Georgia', serif;
-            overflow-x: hidden;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
         }
 
-        .slide {
-            width: 100vw;
+        .section {
             height: 100vh;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
         }
 
-        #slide1 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0001.jpg?raw=true'); }
-        #slide2 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0003.jpg?raw=true'); }
-        #slide3 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0004.jpg?raw=true'); }
-        #slide4 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0005.jpg?raw=true'); }
-        #slide5 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0006.jpg?raw=true'); }
-        #slide6 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0007.jpg?raw=true'); }
+        #section1 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0001.jpg?raw=true'); }
+        #section2 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0003.jpg?raw=true'); }
+        #section3 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0004.jpg?raw=true'); }
+        #section4 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0005.jpg?raw=true'); }
+        #section5 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0006.jpg?raw=true'); }
+        #section6 { background-image: url('https://github.com/YogaconBea/YogaConBea/blob/main/sencia_page-0007.jpg?raw=true'); }
+
+        .nav-buttons {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-buttons button {
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .nav-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .catalogo-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .catalogo-btn:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
         .instagram-logo {
             position: fixed;
@@ -35,110 +76,31 @@
             width: 50px;
             height: 50px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
         }
 
         .instagram-logo:hover {
             transform: scale(1.2);
         }
-
-        .catalogo-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 40px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            font-size: 24px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Georgia', serif;
-            transition: all 0.3s ease;
-        }
-
-        .catalogo-btn:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .galeria {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .galeria.mostrar {
-            display: flex;
-            opacity: 1;
-        }
-
-        .galeria-contenido {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 90%;
-            height: 90%;
-            overflow-y: scroll;
-            scrollbar-width: none;
-        }
-
-        .galeria-contenido::-webkit-scrollbar {
-            display: none;
-        }
-
-        .galeria img {
-            width: 80%;
-            max-width: 500px;
-            margin: 10px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .galeria img:hover {
-            transform: scale(1.05);
-        }
-
-        .cerrar {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .cerrar:hover {
-            transform: scale(1.2);
-        }
     </style>
 </head>
 <body>
-    <div class="slide" id="slide1"></div>
-    <div class="slide" id="slide2"></div>
-    <div class="slide" id="slide3"></div>
-    <div class="slide" id="slide4"></div>
-    <div class="slide" id="slide5"></div>
-    <div class="slide" id="slide6"></div>
+    <div class="nav-buttons">
+        <button onclick="location.href='#section2'">About us</button>
+        <button onclick="location.href='#section3'">Why Yoga?</button>
+        <button onclick="location.href='#section4'">Our history</button>
+        <button onclick="location.href='#section5'">Our values</button>
+        <button onclick="location.href='#section6'">Our goals</button>
+    </div>
+
+    <div id="section1" class="section"></div>
+    <div id="section2" class="section"></div>
+    <div id="section3" class="section"></div>
+    <div id="section4" class="section"></div>
+    <div id="section5" class="section"></div>
+    <div id="section6" class="section"></div>
 
     <button class="catalogo-btn" onclick="toggleGaleria()">Catálogo de Productos</button>
-
-    <div class="galeria" id="galeria">
-        <span class="cerrar" onclick="toggleGaleria()">✖</span>
-        <div class="galeria-contenido">
-            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.03.jpeg?raw=true" alt="Producto 1">
-            <img src="https://github.com/YogaconBea/YogaConBea/blob/main/WhatsApp%20Image%202025-02-07%20at%2010.55.04.jpeg?raw=true" alt="Producto 2">
-        </div>
-    </div>
 
     <a href="https://www.instagram.com/yogaconbea.ch?igsh=ejJkem5uZDljZ3Nu" target="_blank">
         <img class="instagram-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
@@ -146,15 +108,9 @@
 
     <script>
         function toggleGaleria() {
-            var galeria = document.getElementById("galeria");
-            if (galeria.classList.contains("mostrar")) {
-                galeria.classList.remove("mostrar");
-                setTimeout(() => { galeria.style.display = "none"; }, 500);
-            } else {
-                galeria.style.display = "flex";
-                setTimeout(() => { galeria.classList.add("mostrar"); }, 10);
-            }
+            alert('Aquí se abriría la galería de productos.');
         }
     </script>
 </body>
 </html>
+
